@@ -1,18 +1,24 @@
 package br.com.ms.authandauto.controller;
 
+import br.com.ms.authandauto.dto.UserRequestDTO;
 import br.com.ms.authandauto.model.User;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.com.ms.authandauto.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
-    @GetMapping("/new")
-    public String createUser(Model model) {
-        model.addAttribute("user", new User());
-        return "/create-user";
+    @Autowired
+    private UserRepository repository;
+
+    @PostMapping
+    public void createUser(@RequestBody UserRequestDTO data) {
+        User userData = new User(data);
+        repository.save(userData);
+        return;
     }
 }
