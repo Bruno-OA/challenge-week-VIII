@@ -10,4 +10,6 @@ public class AuthAndAutoApplication {
 		SpringApplication.run(AuthAndAutoApplication.class, args);
 	}
 
+
+
 }
