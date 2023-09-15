@@ -1,6 +1,7 @@
 package br.com.ms.authandauto.application.service;
 
 import br.com.ms.authandauto.application.dtos.UserDTO;
+import br.com.ms.authandauto.application.dtos.UserMicroserviceRoleDTO;
 import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import br.com.ms.authandauto.application.interfaces.IUserService;
 import br.com.ms.authandauto.domain.interfaces.IUserRepository;
@@ -47,11 +48,6 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDTO findById(Long id) {
-        return _modelMapper.map(_userRepository.findById(id).orElse(new User()), UserDTO.class);
-    }
-
-    @Override
     public List<UserMicroserviceResponse> getUsersAndPermissions() {
         List<User> users = _userRepository.findAll();
         List<UserMicroserviceResponse> responses = new ArrayList<>();
@@ -75,21 +71,30 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public void updateUserRoleInMicroservice(Long userId, Long microserviceId, Role newRole) {
+
+    }
+
+    @Override
     public void bindUserToMicroservice(Long userId, Long microserviceId, UserMicroserviceRequest request) {
         User user = _userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
+
         Microservice microservice = _modelMapper.map(_microserviceService
                 .findById(microserviceId), Microservice.class);
+
         Role role = Role.USER;
+
         boolean alreadyHasMicroservice = user.getUserMicroservices().stream()
                 .anyMatch(userMicroservice ->
                         userMicroservice.getMicroservice().equals(microservice));
+
         if (!alreadyHasMicroservice) {
-            UserMicroserviceRole userMicroservice = new UserMicroserviceRole();
-            userMicroservice.setUser(user);
-            userMicroservice.setMicroservice(microservice);
-            userMicroservice.setRole(role);
-            user.getUserMicroservices().add(userMicroservice);
+            UserMicroserviceRoleDTO userMicroserviceRoleDTO = new UserMicroserviceRoleDTO();
+            userMicroserviceRoleDTO.setUser(user);
+            userMicroserviceRoleDTO.setMicroservice(microservice);
+            userMicroserviceRoleDTO.setRole(role);
+            user.getUserMicroservices().add(_modelMapper.map(userMicroserviceRoleDTO, UserMicroserviceRole.class) );
             _userRepository.save(user);
         }
     }
