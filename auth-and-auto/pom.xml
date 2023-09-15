@@ -12,7 +12,7 @@
 	<artifactId>auth-and-auto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>auth-and-auto</name>
-	<description>Projeto desenvolvido para simulação de auteneticação</description>
+	<description>Project developed for authentication simulation</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -64,6 +64,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>
+							ferrasz/app-${project.artifactId}:${project.version}
+						</name>
+					</image>
+					<pullPolicy>
+						IF_NOT_PRESENT
+					</pullPolicy>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

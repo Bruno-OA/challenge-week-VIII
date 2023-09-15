@@ -1,4 +1,4 @@
-package br.com.ms.authandauto.domain.model.userMicroservice;
+package br.com.ms.authandauto.domain.model.userMicroserviceRole;
 
 import br.com.ms.authandauto.domain.model.Enum.Role;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
@@ -15,7 +15,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class UserMicroserviceRole {
-
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;

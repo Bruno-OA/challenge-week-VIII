@@ -1,8 +1,6 @@
 package br.com.ms.authandauto.application.dtos;
-
-
+import br.com.ms.authandauto.domain.model.Enum.Role;
 import lombok.*;
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,9 +1,10 @@
 package br.com.ms.authandauto.domain.model.user;
 
-import br.com.ms.authandauto.domain.model.microsservice.Microservice;
+import br.com.ms.authandauto.domain.model.userMicroserviceRole.UserMicroserviceRole;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -20,11 +21,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "user_microservice",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "microservice_id")
-    )
-    private List<Microservice> microservices;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserMicroserviceRole> userMicroservices = new ArrayList<>();
 }
