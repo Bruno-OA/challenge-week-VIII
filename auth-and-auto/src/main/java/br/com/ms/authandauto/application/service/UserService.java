@@ -2,7 +2,8 @@ package br.com.ms.authandauto.application.service;
 
 import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IUserService;
-import br.com.ms.authandauto.domain.interfaces.IMicroserviceRepository;
+import br.com.ms.authandauto.domain.model.microsservice.Microservice;
+import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
 import br.com.ms.authandauto.domain.interfaces.IUserRepository;
 import br.com.ms.authandauto.domain.model.user.User;
 import org.modelmapper.ModelMapper;
@@ -29,8 +30,21 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<UserDTO> findAll() {
-        return null;
+    public List<UserMicroserviceResponse> getUsersAndPermissions() {
+        List<User> users = _userRepository.findAll();
+        List<UserMicroserviceResponse> responses = new ArrayList<>();
+
+        for (User user : users) {
+            UserMicroserviceResponse response = new UserMicroserviceResponse();
+            response.setName(user.getName());
+            response.setEmail(user.getEmail());
+
+            List<Microservice> microservices = user.getMicroservices();
+            response.setMicroservices(microservices);
+
+            responses.add(response);
+        }
+        return responses;
     }
 
     @Override
