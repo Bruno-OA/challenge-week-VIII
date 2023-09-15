@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IMicrosserviceServiceRepostitory extends JpaRepository<Microservice, Long> {
+public interface IMicroserviceRepository extends JpaRepository<Microservice, Long> {
 }
