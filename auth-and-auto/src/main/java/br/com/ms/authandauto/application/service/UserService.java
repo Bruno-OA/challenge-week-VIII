@@ -49,7 +49,8 @@ public class UserService implements IUserService {
 
     @Override
     public void saveUser(UserDTO userDTO) {
-
+        User user = _modelMapper.map(userDTO, User.class);
+        _modelMapper.map(_userRepository.save(user), UserDTO.class);
     }
 
     @Override
