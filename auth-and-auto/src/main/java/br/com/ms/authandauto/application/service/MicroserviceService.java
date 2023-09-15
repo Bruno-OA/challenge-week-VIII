@@ -31,7 +31,7 @@ public class MicroserviceService implements IMicroserviceService {
         List<Microservice> microservices = _microserviceRepository.findAll();
         List<MicroserviceDTO> microserviceDTOs = new ArrayList<>();
         for (Microservice microservice : microservices) {
-            MicroserviceDTO microserviceDTO = _modelMapper.map(microservices, MicroserviceDTO.class);
+            MicroserviceDTO microserviceDTO = _modelMapper.map(microservice, MicroserviceDTO.class);
             microserviceDTOs.add(microserviceDTO);
         }
         return microserviceDTOs;
@@ -39,6 +39,7 @@ public class MicroserviceService implements IMicroserviceService {
 
     @Override
     public void save(MicroserviceDTO microserviceDTO) {
-
+        Microservice microservice = _modelMapper.map(microserviceDTO, Microservice.class);
+        _modelMapper.map(_microserviceRepository.save(microservice), MicroserviceDTO.class);
     }
 }
