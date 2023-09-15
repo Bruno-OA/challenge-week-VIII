@@ -1,5 +1,7 @@
+server:
+  port: 8080
 spring:
   application:
-    name: DEMO
+    name: ms-auth-and-auto
   profiles:
-    active: PROD
+    active: DEV
