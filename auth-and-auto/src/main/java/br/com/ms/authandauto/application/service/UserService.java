@@ -55,6 +55,6 @@ public class UserService implements IUserService {
 
     @Override
     public UserDTO findById(Long id) {
-        return null;
+        return _modelMapper.map(_userRepository.findById(id).orElse(new User()), UserDTO.class);
     }
 }
