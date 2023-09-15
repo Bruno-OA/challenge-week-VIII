@@ -1,19 +1,20 @@
-package br.com.ms.authandauto.domain.model.microsservices;
+package br.com.ms.authandauto.domain.model.user;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Entity
-@Table(name = "microservices")
 @EqualsAndHashCode(of = "id")
-public class Microservice {
+@Table(name = "users")
+@Entity
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
+    private String password;
 }
-
