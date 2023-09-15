@@ -7,6 +7,7 @@ import br.com.ms.authandauto.domain.model.microsservice.Microservice;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,7 +28,13 @@ public class MicroserviceService implements IMicroserviceService {
 
     @Override
     public List<MicroserviceDTO> findAll() {
-        return null;
+        List<Microservice> microservices = _microserviceRepository.findAll();
+        List<MicroserviceDTO> microserviceDTOs = new ArrayList<>();
+        for (Microservice microservice : microservices) {
+            MicroserviceDTO microserviceDTO = _modelMapper.map(microservices, MicroserviceDTO.class);
+            microserviceDTOs.add(microserviceDTO);
+        }
+        return microserviceDTOs;
     }
 
     @Override
