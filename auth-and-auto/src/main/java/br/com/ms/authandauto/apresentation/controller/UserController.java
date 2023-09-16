@@ -1,11 +1,13 @@
 package br.com.ms.authandauto.apresentation.controller;
 
 import br.com.ms.authandauto.application.dtos.UserDTO;
-import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import br.com.ms.authandauto.application.interfaces.IUserService;
+import br.com.ms.authandauto.domain.model.Enum.Role;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
 import br.com.ms.authandauto.domain.model.user.Requests.UserMicroserviceRequest;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -42,6 +44,19 @@ public class UserController {
     ) {
         _userService.bindUserToMicroservice(userId, microserviceId, request);
         return ResponseEntity.ok().build();
+    }
+    @PutMapping("/{userId}/microservice/{microserviceId}/update-role")
+    public ResponseEntity<Void> updateUserRoleInMicroservice(
+            @PathVariable Long userId,
+            @PathVariable Long microserviceId,
+            @RequestParam Role newRole
+    ) {
+        try {
+            _userService.updateUserRoleInMicroservice(userId, microserviceId, newRole);
+            return ResponseEntity.ok().build();
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
 }

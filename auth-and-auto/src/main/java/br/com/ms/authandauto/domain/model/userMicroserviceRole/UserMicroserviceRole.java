@@ -21,7 +21,7 @@ public class UserMicroserviceRole {
         @ManyToOne
         @JoinColumn(name = "user_id")
         private User user;
-        @ManyToOne
+        @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "microservice_id")
         private Microservice microservice;
         @Enumerated(EnumType.STRING)

@@ -21,7 +21,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserMicroserviceRole> userMicroservices = new ArrayList<>();
 }

@@ -10,7 +10,6 @@ import java.util.List;
 
 public interface IUserService {
     UserDTO createUser(UserDTO userDTO);
-
     List<UserMicroserviceResponse> getUsersAndPermissions();
     void updateUserRoleInMicroservice(Long userId, Long microserviceId, Role newRole);
     void bindUserToMicroservice(Long userId, Long microserviceId, UserMicroserviceRequest request);

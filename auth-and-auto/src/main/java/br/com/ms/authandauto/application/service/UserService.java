@@ -72,9 +72,30 @@ public class UserService implements IUserService {
 
     @Override
     public void updateUserRoleInMicroservice(Long userId, Long microserviceId, Role newRole) {
+        User user = _userRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
+        Microservice microservice = _modelMapper.map(_microserviceService
+                .findById(microserviceId), Microservice.class);
+
+        UserMicroserviceRole existingUserMicroservice = user.getUserMicroservices().stream()
+                .filter(userMicroservice -> userMicroservice.getMicroservice().equals(microservice))
+                .findFirst()
+                .orElse(null);
+
+        if (existingUserMicroservice != null) {
+            existingUserMicroservice.setRole(newRole);
+        } else {
+            UserMicroserviceRole userMicroserviceRole = new UserMicroserviceRole();
+            userMicroserviceRole.setUser(user);
+            userMicroserviceRole.setMicroservice(microservice);
+            userMicroserviceRole.setRole(newRole);
+
+            user.getUserMicroservices().add(userMicroserviceRole);
+        }
+
+        _userRepository.save(user);
     }
-
     @Override
     public void bindUserToMicroservice(Long userId, Long microserviceId, UserMicroserviceRequest request) {
         User user = _userRepository.findById(userId)
@@ -82,18 +103,18 @@ public class UserService implements IUserService {
 
         Microservice microservice = _modelMapper.map(_microserviceService
                 .findById(microserviceId), Microservice.class);
-
         Role role = Role.USER;
-
         boolean alreadyHasMicroservice = user.getUserMicroservices().stream()
                 .anyMatch(userMicroservice ->
-                        userMicroservice.getMicroservice().equals(microservice));
+                        userMicroservice.getMicroservice().equals(microservice) &&
+                                userMicroservice.getUser().getEmail().equals(request.getEmailUser()));
 
         if (!alreadyHasMicroservice) {
             UserMicroserviceRoleDTO userMicroserviceRoleDTO = new UserMicroserviceRoleDTO();
             userMicroserviceRoleDTO.setUser(user);
             userMicroserviceRoleDTO.setMicroservice(microservice);
             userMicroserviceRoleDTO.setRole(role);
+
             user.getUserMicroservices().add(_modelMapper.map(userMicroserviceRoleDTO, UserMicroserviceRole.class) );
             _userRepository.save(user);
         }
