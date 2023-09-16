@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController()
-@RequestMapping("users")
+@RequestMapping("api")
 public class UserController {
     private final IUserService _userService;
     @Autowired
@@ -22,23 +22,23 @@ public class UserController {
         _userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/users")
     public ResponseEntity<List<UserMicroserviceResponse>> getUsersAndPermissions() {
         List<UserMicroserviceResponse> usersAndPermissions = _userService.getUsersAndPermissions();
         return ResponseEntity.ok(usersAndPermissions);
     }
-    @PostMapping
+    @PostMapping("/users")
     public ResponseEntity<UserResponse> createUser(@RequestBody UserDTO userDTO)  {
         UserDTO user = _userService.createUser(userDTO);
         UserResponse userResponse = new UserResponse(user);
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/users/{id}")
     public void updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
         _userService.saveUser(userDTO);
     }
 
-    @PutMapping("/{userId}/microservice/{microserviceId}")
+    @PutMapping("/users/{userId}/microservice/{microserviceId}")
     public ResponseEntity<Void> bindUserToMicroservice(
             @PathVariable Long userId,
             @PathVariable Long microserviceId,
@@ -47,7 +47,7 @@ public class UserController {
         _userService.bindUserToMicroservice(userId, microserviceId, request);
         return ResponseEntity.ok().build();
     }
-    @PutMapping("/{userId}/microservice/{microserviceId}/update-role")
+    @PutMapping("/users/{userId}/microservice/{microserviceId}/update-role")
     public ResponseEntity<Void> updateUserRoleInMicroservice(
             @PathVariable Long userId,
             @PathVariable Long microserviceId,

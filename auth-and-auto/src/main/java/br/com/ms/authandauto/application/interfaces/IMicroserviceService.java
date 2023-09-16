@@ -8,5 +8,5 @@ import java.util.List;
 public interface IMicroserviceService {
     MicroserviceDTO findById(Long id);
     List<MicroserviceDTO> findAll();
-    void save(MicroserviceDTO microserviceDTO);
+    MicroserviceDTO createMicroservice(MicroserviceDTO microserviceDTO);
 }
