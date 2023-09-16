@@ -1,9 +1,11 @@
 package br.com.ms.authandauto.application.service;
 
 import br.com.ms.authandauto.application.dtos.MicroserviceDTO;
+import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import br.com.ms.authandauto.domain.interfaces.IMicroserviceRepository;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
+import br.com.ms.authandauto.domain.model.user.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +40,11 @@ public class MicroserviceService implements IMicroserviceService {
     }
 
     @Override
-    public void save(MicroserviceDTO microserviceDTO) {
+    public MicroserviceDTO createMicroservice(MicroserviceDTO microserviceDTO) {
         Microservice microservice = _modelMapper.map(microserviceDTO, Microservice.class);
-        _modelMapper.map(_microserviceRepository.save(microservice), MicroserviceDTO.class);
+        if(_microserviceRepository.findByName(microserviceDTO.getName()).isPresent()){
+            throw new RuntimeException("Microservice já existe");
+        }
+        return _modelMapper.map(_microserviceRepository.save(microservice), MicroserviceDTO.class);
     }
 }
