@@ -38,6 +38,9 @@ public class UserService implements IUserService {
     @Override
     public UserDTO createUser(UserDTO userDTO) {
         User user = _modelMapper.map(userDTO, User.class);
+        if(_userRepository.findByEmail(userDTO.getEmail()).isPresent()){
+            throw new RuntimeException("Email já existe");
+        }
         return _modelMapper.map(_userRepository.save(user), UserDTO.class);
     }
 
