@@ -19,10 +19,4 @@ public class UserDTO {
     private String password;
     @JsonIgnore
     private List<UserMicroserviceRole> userMicroservices = new ArrayList<>();
-
-    public UserDTO(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
 }

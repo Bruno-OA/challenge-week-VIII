@@ -4,6 +4,7 @@ import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IUserService;
 import br.com.ms.authandauto.domain.model.Enum.Role;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
+import br.com.ms.authandauto.domain.model.user.Reponse.UserResponse;
 import br.com.ms.authandauto.domain.model.user.Requests.UserMicroserviceRequest;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,10 @@ public class UserController {
         return ResponseEntity.ok(usersAndPermissions);
     }
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO)  {
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserDTO userDTO)  {
         UserDTO user = _userService.createUser(userDTO);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        UserResponse userResponse = new UserResponse(user);
+        return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
     @PutMapping(value = "/{id}")
     public void updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
