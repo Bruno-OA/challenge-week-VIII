@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db:
     image: postgres:alpine3.18
-    container_name: db
+    container_name: db-postgre
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=1234"
@@ -19,9 +19,24 @@ services:
     build: ./auth-and-auto
     ports:
       - "8080:8080"
-    container_name: app
+    container_name: app-central
     environment:
       - "SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres"
       - "SPRING_DATASOURCE_USERNAME=postgres"
       - "SPRING_DATASOURCE_PASSWORD=1234"
       - "SPRING_JPA_HIBERNATE_DDL_AUTO=update"
+
+  ms-scholar-a:
+    depends_on:
+      - db
+      - ms-auth-and-auto
+    build: ./ms-scholar-a
+    ports:
+      - '8081:8081'
+    container_name: app-individual
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres'
+      - 'SPRING_DATASOURCE_USERNAME=postgres'
+      - 'SPRING_DATASOURCE_PASSWORD=1234'
+      - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
+
