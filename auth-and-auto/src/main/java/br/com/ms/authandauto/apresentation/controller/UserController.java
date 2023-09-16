@@ -29,7 +29,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO)  {
         UserDTO user = _userService.createUser(userDTO);
-        return ResponseEntity.ok(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
     @PutMapping(value = "/{id}")
     public void updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
