@@ -9,7 +9,4 @@ public class AuthAndAutoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AuthAndAutoApplication.class, args);
 	}
-
-
-
 }
