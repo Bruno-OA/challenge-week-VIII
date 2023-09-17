@@ -16,9 +16,10 @@ public enum ErrorCodes {
     MALFORMED_JSON("Malformed JSON"),
     RESOURCE_NOT_FOUND("Resource not found"),
     DUPLICATED_EMAIL("Duplicated Email"),
-    INVALID_DATA("Invalid Data"),
+    INVALID_EMAIL("Invalid Email"),
     MICROSERVICE_ALREADY_EXISTS_IN_USER("Microservice already exists in the user"),
-    MICROSERVICE_ALREADY_EXISTS("Microservice already exists");
+    MICROSERVICE_ALREADY_EXISTS("Microservice already exists"),
+    INVALID_MICROSERVICE_NAME("Invalid microservice name");
 
 
     private final String message;

@@ -58,9 +58,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.DUPLICATED_EMAIL, ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
+    @ExceptionHandler(InvalidEmailException.class)
+    public final ResponseEntity<Object> handleInvalidData(InvalidEmailException ex) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.INVALID_EMAIL, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
+    }
     @ExceptionHandler(MicroserviceAlreadyExistsInUserExcept.class)
     public final ResponseEntity<Object> handleMicroserviceAlreadyExistsInUserExcept(MicroserviceAlreadyExistsInUserExcept ex) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.MICROSERVICE_ALREADY_EXISTS_IN_USER, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
+    }
+    @ExceptionHandler(InvalidMicroserviceNameException.class)
+    public final ResponseEntity<Object> handleInvalidMicroserviceNameException(InvalidMicroserviceNameException ex) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.INVALID_MICROSERVICE_NAME, ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
 
