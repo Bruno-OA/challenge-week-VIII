@@ -5,9 +5,7 @@ import br.com.ms.authandauto.application.dtos.UserMicroserviceRoleDTO;
 import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import br.com.ms.authandauto.application.interfaces.IUserService;
 import br.com.ms.authandauto.infra.constants.ErrorConstants;
-import br.com.ms.authandauto.infra.exceptions.DuplicatedEmailException;
-import br.com.ms.authandauto.infra.exceptions.ExceptionResponse;
-import br.com.ms.authandauto.infra.exceptions.MicroserviceAlreadyExistsInUserExcept;
+import br.com.ms.authandauto.infra.exceptions.*;
 import br.com.ms.authandauto.domain.enums.ErrorCodes;
 import br.com.ms.authandauto.domain.interfaces.IUserRepository;
 import br.com.ms.authandauto.domain.enums.Role;
@@ -75,10 +73,16 @@ public class UserService implements IUserService {
     @Override
     public void updateUserRoleInMicroservice(Long userId, Long microserviceId, Role newRole) {
         User user = _userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(new ExceptionResponse(ErrorCodes.USER_NOT_FOUND,
+                        ErrorConstants.USER_NOT_FOUND)));
 
         Microservice microservice = _modelMapper.map(_microserviceService
                 .findById(microserviceId), Microservice.class);
+
+        UserMicroserviceRole existingUser = user.getUserMicroservices().stream()
+                .filter(userMicroservice -> userMicroservice.getUser().equals(user))
+                .findFirst()
+                .orElse(null);
 
         UserMicroserviceRole existingUserMicroservice = user.getUserMicroservices().stream()
                 .filter(userMicroservice -> userMicroservice.getMicroservice().equals(microservice))
@@ -87,14 +91,20 @@ public class UserService implements IUserService {
 
         if (existingUserMicroservice != null) {
             existingUserMicroservice.setRole(newRole);
-        } else {
-            UserMicroserviceRole userMicroserviceRole = new UserMicroserviceRole();
-            userMicroserviceRole.setUser(user);
-            userMicroserviceRole.setMicroservice(microservice);
-            userMicroserviceRole.setRole(newRole);
-
-            user.getUserMicroservices().add(userMicroserviceRole);
         }
+        if(existingUser == null) {
+            throw new UserNotFoundException(
+                    new ExceptionResponse(ErrorCodes.USER_NOT_FOUND,
+                            ErrorConstants.USER_NOT_FOUND)
+            );
+        }
+        if(existingUserMicroservice == null) {
+            throw new MicroserviceNotFoundException(
+                    new ExceptionResponse(ErrorCodes.MICROSERVICE_NOT_FOUND,
+                            ErrorConstants.MICROSERVICE_NOT_FOUND)
+            );
+        }
+
 
         _userRepository.save(user);
     }
