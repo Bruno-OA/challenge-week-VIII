@@ -1,6 +1,6 @@
 package br.com.ms.authandauto.domain.model.userMicroserviceRole;
 
-import br.com.ms.authandauto.domain.model.Enum.Role;
+import br.com.ms.authandauto.domain.enums.Role;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
 import br.com.ms.authandauto.domain.model.user.User;
 import jakarta.persistence.*;

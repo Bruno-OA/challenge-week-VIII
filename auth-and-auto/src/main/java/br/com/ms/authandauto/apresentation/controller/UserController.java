@@ -2,7 +2,7 @@ package br.com.ms.authandauto.apresentation.controller;
 
 import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IUserService;
-import br.com.ms.authandauto.domain.model.Enum.Role;
+import br.com.ms.authandauto.domain.enums.Role;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserResponse;
 import br.com.ms.authandauto.domain.model.user.Requests.UserMicroserviceRequest;
@@ -32,10 +32,6 @@ public class UserController {
         UserDTO user = _userService.createUser(userDTO);
         UserResponse userResponse = new UserResponse(user);
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
-    }
-    @PutMapping(value = "/users/{id}")
-    public void updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
-        _userService.saveUser(userDTO);
     }
 
     @PutMapping("/users/{userId}/microservice/{microserviceId}")

@@ -1,6 +1,5 @@
 package br.com.ms.authandauto.domain.model.microsservice;
 
-import br.com.ms.authandauto.domain.model.Enum.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
