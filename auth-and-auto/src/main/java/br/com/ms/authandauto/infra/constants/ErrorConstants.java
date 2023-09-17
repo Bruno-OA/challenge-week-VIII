@@ -1,4 +1,4 @@
-package br.com.ms.authandauto.domain.constants;
+package br.com.ms.authandauto.infra.constants;
 
 import lombok.AccessLevel;
 import lombok.Getter;
