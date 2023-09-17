@@ -4,8 +4,13 @@ import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.dtos.UserMicroserviceRoleDTO;
 import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import br.com.ms.authandauto.application.interfaces.IUserService;
+import br.com.ms.authandauto.infra.constants.ErrorConstants;
+import br.com.ms.authandauto.infra.exceptions.DuplicatedEmailException;
+import br.com.ms.authandauto.infra.exceptions.ExceptionResponse;
+import br.com.ms.authandauto.infra.exceptions.MicroserviceAlreadyExistsInUserExcept;
+import br.com.ms.authandauto.domain.enums.ErrorCodes;
 import br.com.ms.authandauto.domain.interfaces.IUserRepository;
-import br.com.ms.authandauto.domain.model.Enum.Role;
+import br.com.ms.authandauto.domain.enums.Role;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
 import br.com.ms.authandauto.domain.model.user.Requests.UserMicroserviceRequest;
@@ -39,17 +44,11 @@ public class UserService implements IUserService {
     public UserDTO createUser(UserDTO userDTO) {
         User user = _modelMapper.map(userDTO, User.class);
         if(_userRepository.findByEmail(userDTO.getEmail()).isPresent()){
-            throw new RuntimeException("Email já existe");
+           throw new DuplicatedEmailException(
+                   new ExceptionResponse(ErrorCodes.BAD_REQUEST, ErrorConstants.USER_ALREADY_EXISTS));
         }
         return _modelMapper.map(_userRepository.save(user), UserDTO.class);
     }
-
-    @Override
-    public void saveUser(UserDTO userDTO) {
-        User user = _modelMapper.map(userDTO, User.class);
-        _modelMapper.map(_userRepository.save(user), UserDTO.class);
-    }
-
     @Override
     public List<UserMicroserviceResponse> getUsersAndPermissions() {
         List<User> users = _userRepository.findAll();
@@ -112,7 +111,11 @@ public class UserService implements IUserService {
                         userMicroservice.getMicroservice().equals(microservice) &&
                                 userMicroservice.getUser().getEmail().equals(request.getEmailUser()));
 
-        if (!alreadyHasMicroservice) {
+        if(alreadyHasMicroservice){
+            throw new MicroserviceAlreadyExistsInUserExcept(
+                    new ExceptionResponse(ErrorCodes.MICROSERVICE_ALREADY_EXISTS_IN_USER,
+                            ErrorConstants.MICROSERVICE_ALREADY_EXISTS));
+        }else{
             UserMicroserviceRoleDTO userMicroserviceRoleDTO = new UserMicroserviceRoleDTO();
             userMicroserviceRoleDTO.setUser(user);
             userMicroserviceRoleDTO.setMicroservice(microservice);
