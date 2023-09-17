@@ -1,11 +1,13 @@
 package br.com.ms.authandauto.application.service;
 
 import br.com.ms.authandauto.application.dtos.MicroserviceDTO;
-import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
+import br.com.ms.authandauto.infra.constants.ErrorConstants;
+import br.com.ms.authandauto.infra.exceptions.ExceptionResponse;
+import br.com.ms.authandauto.infra.exceptions.MicroserviceAlreadyExistsExcept;
+import br.com.ms.authandauto.domain.enums.ErrorCodes;
 import br.com.ms.authandauto.domain.interfaces.IMicroserviceRepository;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
-import br.com.ms.authandauto.domain.model.user.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +45,9 @@ public class MicroserviceService implements IMicroserviceService {
     public MicroserviceDTO createMicroservice(MicroserviceDTO microserviceDTO) {
         Microservice microservice = _modelMapper.map(microserviceDTO, Microservice.class);
         if(_microserviceRepository.findByName(microserviceDTO.getName()).isPresent()){
-            throw new RuntimeException("Microservice já existe");
+            throw new MicroserviceAlreadyExistsExcept(
+                    new ExceptionResponse(ErrorCodes.MICROSERVICE_ALREADY_EXISTS,
+                            ErrorConstants.MICROSERVICE_ALREADY_EXISTS));
         }
         return _modelMapper.map(_microserviceRepository.save(microservice), MicroserviceDTO.class);
     }
