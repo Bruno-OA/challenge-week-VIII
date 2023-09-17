@@ -1,8 +1,7 @@
 package br.com.ms.authandauto.application.dtos;
-import br.com.ms.authandauto.domain.model.Enum.Role;
+import br.com.ms.authandauto.domain.enums.Role;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
 import br.com.ms.authandauto.domain.model.user.User;
-import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
