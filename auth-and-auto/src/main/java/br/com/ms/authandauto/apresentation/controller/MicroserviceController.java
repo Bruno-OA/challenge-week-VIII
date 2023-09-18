@@ -5,10 +5,7 @@ import br.com.ms.authandauto.application.interfaces.IMicroserviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController()
 @RequestMapping("api")
@@ -25,5 +22,11 @@ public class MicroserviceController {
     public ResponseEntity<MicroserviceDTO> createUser(@RequestBody MicroserviceDTO microserviceDTO)  {
         MicroserviceDTO microservice = _microserviceService.createMicroservice(microserviceDTO);
         return new ResponseEntity<>(microservice, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/microservices/{id}")
+    public ResponseEntity<MicroserviceDTO> findById(@PathVariable Long id){
+        MicroserviceDTO microservice = _microserviceService.findById(id);
+        return ResponseEntity.ok(microservice);
     }
 }

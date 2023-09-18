@@ -150,4 +150,12 @@ public class UserService implements IUserService {
 
 
     }
+    @Override
+    public UserDTO findById(Long id) {
+        User user   = _userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(
+                new ExceptionResponse(ErrorCodes.USER_NOT_FOUND, ErrorConstants.USER_NOT_FOUND)));
+
+        return _modelMapper.map(user, UserDTO.class);
+
+    }
 }

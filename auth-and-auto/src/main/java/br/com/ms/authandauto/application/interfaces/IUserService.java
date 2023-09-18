@@ -14,5 +14,7 @@ public interface IUserService {
     void updateUserRoleInMicroservice(Long userId, Long microserviceId, Role newRole);
     void bindUserToMicroservice(Long userId, Long microserviceId, UserMicroserviceRequest request);
 
+    UserDTO findById(Long id);
+
 
 }

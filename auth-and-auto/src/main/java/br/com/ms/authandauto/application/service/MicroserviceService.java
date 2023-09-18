@@ -8,6 +8,7 @@ import br.com.ms.authandauto.infra.exceptions.MicroserviceAlreadyExistsExcept;
 import br.com.ms.authandauto.domain.enums.ErrorCodes;
 import br.com.ms.authandauto.domain.interfaces.IMicroserviceRepository;
 import br.com.ms.authandauto.domain.model.microsservice.Microservice;
+import br.com.ms.authandauto.infra.exceptions.MicroserviceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,10 @@ public class MicroserviceService implements IMicroserviceService {
 
     @Override
     public MicroserviceDTO findById(Long id) {
-        return _modelMapper.map(_microserviceRepository.findById(id).orElse(new Microservice()), MicroserviceDTO.class);
+        Microservice microservice = _microserviceRepository.findById(id).orElseThrow(() -> new MicroserviceNotFoundException(
+                new ExceptionResponse(ErrorCodes.MICROSERVICE_NOT_FOUND, ErrorConstants.MICROSERVICE_NOT_FOUND)));
+
+        return _modelMapper.map(microservice, MicroserviceDTO.class);
     }
 
     @Override

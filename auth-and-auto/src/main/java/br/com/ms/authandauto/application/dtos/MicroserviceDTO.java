@@ -1,4 +1,5 @@
 package br.com.ms.authandauto.application.dtos;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 @Getter
 @AllArgsConstructor
@@ -7,6 +8,7 @@ import lombok.*;
 @Setter
 public class MicroserviceDTO {
     private Long id;
+    @JsonProperty("name")
     private String name;
 }
 

@@ -1,11 +1,13 @@
 package br.com.ms.authandauto.apresentation.controller;
 
+import br.com.ms.authandauto.application.dtos.MicroserviceDTO;
 import br.com.ms.authandauto.application.dtos.UserDTO;
 import br.com.ms.authandauto.application.interfaces.IUserService;
 import br.com.ms.authandauto.domain.enums.Role;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserMicroserviceResponse;
 import br.com.ms.authandauto.domain.model.user.Reponse.UserResponse;
 import br.com.ms.authandauto.domain.model.user.Requests.UserMicroserviceRequest;
+import br.com.ms.authandauto.domain.model.user.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,13 @@ public class UserController {
         _userService = userService;
     }
 
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<UserResponse> findById(@PathVariable Long id){
+        UserDTO userDTO = _userService.findById(id);
+        UserResponse userResponse = new UserResponse(userDTO);
+        return ResponseEntity.ok(userResponse);
+    }
     @GetMapping("/users")
     public ResponseEntity<List<UserMicroserviceResponse>> getUsersAndPermissions() {
         List<UserMicroserviceResponse> usersAndPermissions = _userService.getUsersAndPermissions();
