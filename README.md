@@ -3,7 +3,7 @@
 > Use this table of contents to jump to the section you want
 
 | Content                                      | Link                    | Difficulty |
-| :------------------------------------------- | :---------------------- | :--------: |
+|:---------------------------------------------|:------------------------|:----------:|
 | About the challenge                          | [Go](<insert the link>) |     -      |
 | What the demands are                         | [Go](<insert the link>) |     -      |
 | Central microservice                         | [Go](<insert the link>) |    high    |
@@ -27,12 +27,12 @@ Each individual microservice must comunicate with the main microservice
 > 1. The requirements for the project are listed on this section, just follow along.
 > 2. Microservice specific requirements will be listed on their own sections
 
-1. Usage of two fixed branches: main and dev
+1.Usage of two fixed branches: main and dev
 
 - `Main` branch will be used for the latest complete project version
 - `Dev` branch will be used to assemble every feature developed before merging to main branch
 
-2. Branches' **name pattern**: `[microservice-name]/feature-[feature-name]`
+2.Branches' **name pattern**: `[microservice-name]/feature-[feature-name]`
 
 ```mermaid
   gitGraph LR:
@@ -53,16 +53,16 @@ Each individual microservice must comunicate with the main microservice
 
 ```
 
-3. **Semantic commits** messages implementation, example below:
+3.**Semantic commits** messages implementation, example below:
 
 ```git
  git commit -m "docs: updated README.md with new table of contents"
 ```
 
-4. **README** as documentation
-5. Usage of Docker with **docker-compose.yaml**
-6. **Postman** or **Swagger** collection
-7. Usage of at least one OneToMany, OneToOne or ManyToMany relation
+4.**README** as documentation
+5.Usage of Docker with **docker-compose.yaml**
+6.**Postman** or **Swagger** collection
+7.Usage of at least one OneToMany, OneToOne or ManyToMany relation
 
 ## Central microservice
 
