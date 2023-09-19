@@ -33,7 +33,7 @@ public class UserMicroserviceRoleController {
     }
 
     @GetMapping("/userMicroserviceRole/{microserviceId}")
-    public ResponseEntity<MicroserviceDTO> getUsersByMicroservice(@PathVariable Long microserviceId) {
+    public ResponseEntity<MicroserviceDTO> getMicroserviceByMicroserviceId(@PathVariable Long microserviceId) {
         MicroserviceDTO microserviceUsers = _userMicroserviceRoleService.findMicroserviceById(microserviceId);
         return ResponseEntity.ok(microserviceUsers);
     }
