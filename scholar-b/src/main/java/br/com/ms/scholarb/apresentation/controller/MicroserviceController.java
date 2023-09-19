@@ -1,7 +1,7 @@
 package br.com.ms.scholarb.apresentation.controller;
 
-import br.com.ms.a.application.service.MicroserviceService;
-import br.com.ms.a.domain.model.microsservice.MicroserviceResponse;
+import br.com.ms.scholarb.application.service.MicroserviceService;
+import br.com.ms.scholarb.domain.model.microsservice.MicroserviceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package br.com.ms.scholarb.apresentation.controller;
 
-import br.com.ms.a.application.service.UserService;
-import br.com.ms.a.domain.model.user.UserResponse;
+import br.com.ms.scholarb.application.service.UserService;
+import br.com.ms.scholarb.domain.model.user.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,8 +1,8 @@
-package br.com.ms.scholarb.aplication.service;
+package br.com.ms.scholarb.application.service;
 
-import br.com.ms.a.domain.model.user.UserResponse;
-import br.com.ms.a.domain.model.userMicroserviceRole.UserMicroserviceRole;
-import br.com.ms.a.infra.FeignCliente.UserMicroserviceRoleFeign;
+import br.com.ms.scholarb.domain.model.userMicroserviceRole.UserMicroserviceRole;
+import br.com.ms.scholarb.domain.model.user.UserResponse;
+import br.com.ms.scholarb.infra.FeingClient.UserMicroserviceRoleFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
