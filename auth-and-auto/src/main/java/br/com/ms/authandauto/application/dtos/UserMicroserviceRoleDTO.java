@@ -11,8 +11,8 @@ import lombok.*;
 @Setter
 public class UserMicroserviceRoleDTO {
     private Long id;
-    private User user;
-    private Microservice microservice;
+    private UserDTO user;
+    private MicroserviceDTO microservice;
     private Role role;
 }
 
