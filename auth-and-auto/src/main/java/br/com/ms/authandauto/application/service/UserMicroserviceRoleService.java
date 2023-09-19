@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
 @Service
 public class UserMicroserviceRoleService implements IUserMicroserviceRoleService {
 
@@ -31,7 +32,14 @@ public class UserMicroserviceRoleService implements IUserMicroserviceRoleService
 
     @Override
     public MicroserviceDTO findMicroserviceById(Long id) {
-        return null;
+        UserMicroserviceRole userMicroserviceRole = _userMicroserviceRoleRepository.
+                findFirstByMicroserviceId(id);
+        String name = userMicroserviceRole.getMicroservice().getName();
+        Long microserviceId = userMicroserviceRole.getMicroservice().getId();
+        MicroserviceDTO microserviceDTO = new MicroserviceDTO();
+        microserviceDTO.setId(microserviceId);
+        microserviceDTO.setName(name);
+        return microserviceDTO;
     }
 
 }
