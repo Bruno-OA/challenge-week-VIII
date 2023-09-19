@@ -4,9 +4,11 @@ import br.com.ms.authandauto.application.dtos.MicroserviceDTO;
 import br.com.ms.authandauto.application.dtos.UserMicroserviceRoleDTO;
 import br.com.ms.authandauto.application.interfaces.IUserMicroserviceRoleService;
 import br.com.ms.authandauto.domain.interfaces.IUserMicroserviceRoleRepository;
+import br.com.ms.authandauto.domain.model.userMicroserviceRole.UserMicroserviceRole;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class UserMicroserviceRoleService implements IUserMicroserviceRoleService {
@@ -22,7 +24,9 @@ public class UserMicroserviceRoleService implements IUserMicroserviceRoleService
 
     @Override
     public UserMicroserviceRoleDTO findByUserAndMicroservice(Long userId, Long microserviceId) {
-        return null;
+        UserMicroserviceRole userMicroserviceRole = _userMicroserviceRoleRepository
+                .findByUserIdAndMicroserviceId(userId, microserviceId);
+        return _modelMapper.map(userMicroserviceRole, UserMicroserviceRoleDTO.class);
     }
 
     @Override
