@@ -1,6 +1,7 @@
 package br.com.ms.authandauto.domain.model.user;
 
 import br.com.ms.authandauto.domain.model.userMicroserviceRole.UserMicroserviceRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
