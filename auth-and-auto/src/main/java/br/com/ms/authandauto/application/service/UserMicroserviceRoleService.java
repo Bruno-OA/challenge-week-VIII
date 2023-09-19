@@ -1,0 +1,33 @@
+package br.com.ms.authandauto.application.service;
+
+import br.com.ms.authandauto.application.dtos.MicroserviceDTO;
+import br.com.ms.authandauto.application.dtos.UserMicroserviceRoleDTO;
+import br.com.ms.authandauto.application.interfaces.IUserMicroserviceRoleService;
+import br.com.ms.authandauto.domain.interfaces.IUserMicroserviceRoleRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserMicroserviceRoleService implements IUserMicroserviceRoleService {
+
+    private final IUserMicroserviceRoleRepository _userMicroserviceRoleRepository;
+    private final ModelMapper _modelMapper;
+
+    @Autowired
+    public UserMicroserviceRoleService(IUserMicroserviceRoleRepository userMicroserviceRoleRepository, ModelMapper modelMapper) {
+        _userMicroserviceRoleRepository = userMicroserviceRoleRepository;
+        _modelMapper = modelMapper;
+    }
+
+    @Override
+    public UserMicroserviceRoleDTO findByUserAndMicroservice(Long userId, Long microserviceId) {
+        return null;
+    }
+
+    @Override
+    public MicroserviceDTO findMicroserviceById(Long id) {
+        return null;
+    }
+
+}
