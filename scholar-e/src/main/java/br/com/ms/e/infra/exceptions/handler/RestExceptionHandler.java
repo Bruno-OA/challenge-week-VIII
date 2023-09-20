@@ -1,9 +1,9 @@
-package br.com.ms.a.infra.exceptions.handler;
+package br.com.ms.e.infra.exceptions.handler;
 
 
-import br.com.ms.a.domain.model.enums.ErrorCodes;
-import br.com.ms.a.infra.exceptions.ExceptionResponse;
-import br.com.ms.a.infra.exceptions.UserMicroserviceRoleNotFoundException;
+import br.com.ms.e.domain.model.enums.ErrorCodes;
+import br.com.ms.e.infra.exceptions.ExceptionResponse;
+import br.com.ms.e.infra.exceptions.UserMicroserviceRoleNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
