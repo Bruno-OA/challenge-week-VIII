@@ -1,10 +1,10 @@
-package br.com.ms.e.application.service;
+package br.com.ms.c.application.service;
 
-import br.com.ms.e.domain.model.user.User;
-import br.com.ms.e.domain.model.user.UserResponse;
-import br.com.ms.e.domain.model.userMicroserviceRole.UserMicroserviceRole;
-import br.com.ms.e.infra.FeignCliente.UserMicroserviceRoleFeign;
-import br.com.ms.e.infra.exceptions.UserMicroserviceRoleNotFoundException;
+import br.com.ms.c.domain.model.user.User;
+import br.com.ms.c.domain.model.user.UserResponse;
+import br.com.ms.c.domain.model.userMicroserviceRole.UserMicroserviceRole;
+import br.com.ms.c.infra.FeignCliente.UserMicroserviceRoleFeign;
+import br.com.ms.c.infra.exceptions.UserMicroserviceRoleNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

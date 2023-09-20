@@ -1,4 +1,4 @@
-package br.com.ms.e;
+package br.com.ms.c;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
