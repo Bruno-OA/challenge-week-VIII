@@ -191,8 +191,17 @@ The `UserMicroserviceRoleController` has three endpoints:
 
 ### docker-compose.yml
 > This file sets how each container should act while running with docker
+> 
 > While in development, we decided to use a specific designed by user netowrk to manage communication between the containers, setting fixed IPs to each microservice
- 
+
+#### Use of H2 within docker
+> Change the environment settings in the docker-compose.yml of auth-and-auto microservice to 
+>
+>- "SPRING_DATASOURCE_URL=jdbc:h2:mem:mydbtest"
+>- "SPRING_DATASOURCE_USERNAME=sa"
+>- "SPRING_JPA_HIBERNATE_DDL_AUTO=update"
+
+> Remember that other application.yml changes might be needed
 
 ### Containers
 #### Individual Microservice container
