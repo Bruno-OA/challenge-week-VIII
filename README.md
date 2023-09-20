@@ -66,6 +66,33 @@ Each individual microservice must comunicate with the main microservice
 
 ## Central microservice
 
+The Central Microservice is designed to simulate the authentication and authorization of a user within a microservice. It consists of three controllers: `MicroserviceController`, `UserController`, and `UserMicroserviceRoleController`. Each controller has its own endpoints.
+
+### MicroserviceController
+
+The `MicroserviceController` has two endpoints:
+
+1. `createMicroservice`: This endpoint is responsible for creating new microservices in the database.
+2. `findById`: This endpoint is responsible for fetching a microservice by its ID from the database.
+
+### UserController
+
+The `UserController` has five endpoints:
+
+1. `createUser`: This endpoint is responsible for creating a new user in the database.
+2. `findById`: This endpoint is responsible for fetching a user by their ID from the database.
+3. `bindUserToMicroserviceId`: This endpoint links a user to a microservice. The required parameters are `userId`, `microserviceId`, and `UserMicroserviceRequest` (a class that contains `emailUser` and `nameMicroservice`).
+4. `getUsersAndPermissions`: This endpoint returns a list of users along with their linked microservices and permissions within those microservices.
+5. `updateUserRoleInMicroservice`: This endpoint updates the user's role within the microservice. By default, when the user is linked to the microservice, their role is set as USER. With this endpoint, it's possible to change the user's role to ADMIN or from ADMIN to USER by passing the parameters: `userId`, `microserviceId`, and `newRole`.
+
+### UserMicroserviceRoleController
+
+The `UserMicroserviceRoleController` has three endpoints:
+
+1. `getUsersByUserIdAndMicroserviceId`: This endpoint is responsible for searching for the relationship between the user and microservice and returns the user and the user's role within that microservice, passing as parameters: userId and microserviceId.
+2. `getMicroserviceByMicroserviceId`: This endpoint validates if there is a microservice within UserMicroserviceRole, where the relationship between user and microservice is located. If the microservice exists within this relationship, the endpoint will return the microservice passed by parameter: microserviceId.
+3. `getUsersByMicroserviceId`: This endpoint returns a list of users and their role linked to the microservice, parameter: microserviceId.
+
 ---
 
 ## Individuals microservice
