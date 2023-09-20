@@ -1,0 +1,10 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /ms-auth-and-auto
+spring:
+  application:
+    name: ms-auth-and-auto
+  profiles:
+    active: DEV
