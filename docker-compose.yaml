@@ -15,7 +15,6 @@ services:
     ports:
       - "5431:5432"
 
-
   ms-auth-and-auto:
     depends_on:
       - db
@@ -49,6 +48,7 @@ services:
       - 'SPRING_DATASOURCE_PASSWORD=1234'
       - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
 
+
   ms-scholar-b:
     depends_on:
       - db
@@ -66,6 +66,23 @@ services:
       - 'SPRING_DATASOURCE_PASSWORD=1234'
       - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
 
+  ms-scholar-c:
+    depends_on:
+      - db
+      - ms-auth-and-auto
+    build: ./scholar-c
+    ports:
+      - '8083:8083'
+    container_name: app-individual-c
+    networks:
+      challenge:
+        ipv4_address: 172.23.0.6
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres'
+      - 'SPRING_DATASOURCE_USERNAME=postgres'
+      - 'SPRING_DATASOURCE_PASSWORD=1234'
+      - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
+
   ms-scholar-d:
     depends_on:
       - db
@@ -76,7 +93,7 @@ services:
     container_name: app-individual-d
     networks:
       challenge:
-        ipv4_address: 172.23.0.6
+        ipv4_address: 172.23.0.7
 
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres'
@@ -94,7 +111,7 @@ services:
       container_name: app-individual-e
       networks:
         challenge:
-          ipv4_address: 172.23.0.7
+          ipv4_address: 172.23.0.8
 
       environment:
         - 'SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres'
