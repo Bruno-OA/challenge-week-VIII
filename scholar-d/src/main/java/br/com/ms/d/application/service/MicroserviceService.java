@@ -1,8 +1,13 @@
 package br.com.ms.d.application.service;
 
 
+import br.com.ms.d.domain.model.microservice.Microservice;
+import br.com.ms.d.domain.model.microservice.MicroserviceResponse;
+import br.com.ms.d.domain.model.user.UserResponse;
 import br.com.ms.d.infra.FeignClient.UserMicroserviceRoleFeign;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MicroserviceService {

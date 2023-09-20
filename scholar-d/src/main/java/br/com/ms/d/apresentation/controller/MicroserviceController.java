@@ -1,5 +1,7 @@
 package br.com.ms.d.apresentation.controller;
 
+import br.com.ms.d.application.service.MicroserviceService;
+import br.com.ms.d.domain.model.microservice.MicroserviceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

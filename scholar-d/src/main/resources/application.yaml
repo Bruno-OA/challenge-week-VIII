@@ -7,3 +7,5 @@ spring:
     name: ms-scholar-d
   main:
     allow-bean-definition-overriding: true
+  profiles:
+    active: PROD

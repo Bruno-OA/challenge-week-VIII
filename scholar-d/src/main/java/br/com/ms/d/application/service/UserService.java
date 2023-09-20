@@ -1,5 +1,7 @@
 package br.com.ms.d.application.service;
 
+import br.com.ms.d.domain.model.user.UserResponse;
+import br.com.ms.d.domain.model.userMicroserviceRole.UserMicroserviceRole;
 import br.com.ms.d.infra.FeignClient.UserMicroserviceRoleFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
