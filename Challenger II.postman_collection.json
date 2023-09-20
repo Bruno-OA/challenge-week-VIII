@@ -359,7 +359,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8082/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"raw": "http://localhost:8082/ms-b/api/scholar/{userId}/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -388,7 +388,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8082/ms-a/api/scholar/microservice/{microserviceId}",
+									"raw": "http://localhost:8082/ms-b/api/scholar/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -421,7 +421,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8083/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"raw": "http://localhost:8083/ms-c/api/scholar/{userId}/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -450,7 +450,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8083/ms-a/api/scholar/microservice/{microserviceId}",
+									"raw": "http://localhost:8083/ms-c/api/scholar/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -483,7 +483,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8084/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"raw": "http://localhost:8084/ms-d/api/scholar/{userId}/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -512,7 +512,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8084/ms-a/api/scholar/microservice/{microserviceId}",
+									"raw": "http://localhost:8084/ms-d/api/scholar/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -545,7 +545,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8085/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"raw": "http://localhost:8085/ms-e/api/scholar/{userId}/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -574,7 +574,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8085/ms-a/api/scholar/microservice/{microserviceId}",
+									"raw": "http://localhost:8085/ms-e/api/scholar/microservice/{microserviceId}",
 									"protocol": "http",
 									"host": [
 										"localhost"
