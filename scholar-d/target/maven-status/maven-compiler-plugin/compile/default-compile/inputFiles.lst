@@ -1,0 +1,16 @@
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\infra\exceptions\handler\RestExceptionHandler.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\userMicroserviceRole\UserMicroserviceRole.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\apresentation\controller\UserController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\apresentation\controller\MicroserviceController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\infra\FeignClient\UserMicroserviceRoleFeign.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\application\service\MicroserviceService.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\microservice\Microservice.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\application\service\UserService.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\microservice\MicroserviceResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\user\User.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\infra\exceptions\UserMicroserviceRoleNotFoundException.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\infra\exceptions\ExceptionResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\enums\ErrorCodes.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\domain\model\user\UserResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\MsScholarDApplication.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-d\src\main\java\br\com\ms\d\infra\constants\ErrorConstants.java

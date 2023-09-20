@@ -1,0 +1,16 @@
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\user\User.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\infra\FeignCliente\UserMicroserviceRoleFeign.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\microsservice\Microservice.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\infra\constants\ErrorConstants.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\infra\exceptions\UserMicroserviceRoleNotFoundException.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\microsservice\MicroserviceResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\apresentation\controller\MicroserviceController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\user\UserResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\enums\ErrorCodes.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\infra\exceptions\ExceptionResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\application\service\UserService.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\application\service\MicroserviceService.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\infra\exceptions\handler\RestExceptionHandler.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\MsScholarAApplication.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\apresentation\controller\UserController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-a\src\main\java\br\com\ms\a\domain\model\userMicroserviceRole\UserMicroserviceRole.java

@@ -1,0 +1,16 @@
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\microsservice\MicroserviceResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\infra\FeingClient\UserMicroserviceRoleFeign.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\user\User.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\apresentation\controller\MicroserviceController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\user\UserResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\infra\constants\ErrorConstants.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\infra\exceptions\ExceptionResponse.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\infra\exceptions\handler\RestExceptionHandler.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\enums\ErrorCodes.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\ScholarBApplication.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\microsservice\Microservice.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\infra\exceptions\UserMicroserviceRoleNotFoundException.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\apresentation\controller\UserController.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\application\service\MicroserviceService.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\domain\model\userMicroserviceRole\UserMicroserviceRole.java
+C:\Users\Gabriel\Downloads\projeto_final\challenge-week-VIII\scholar-b\src\main\java\br\com\ms\scholarb\application\service\UserService.java

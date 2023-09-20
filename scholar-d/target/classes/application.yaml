@@ -1,0 +1,11 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /ms-d
+spring:
+  application:
+    name: ms-scholar-d
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: DOCKER
