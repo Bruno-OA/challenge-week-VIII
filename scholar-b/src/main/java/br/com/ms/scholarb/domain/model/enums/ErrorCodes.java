@@ -18,6 +18,4 @@ public enum ErrorCodes {
     USER_MICROSERVICE_ROLE_NOT_FOUND("UserMicroserviceRole not found");
     private final String message;
 
-    public String getMessage() {
-    }
 }
