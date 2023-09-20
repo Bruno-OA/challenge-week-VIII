@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.ms.authandauto.application.service.MicroserviceServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.617 s - in br.com.ms.authandauto.application.service.MicroserviceServiceTest

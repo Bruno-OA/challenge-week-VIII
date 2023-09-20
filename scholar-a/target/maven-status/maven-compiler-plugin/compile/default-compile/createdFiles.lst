@@ -1,0 +1,16 @@
+br\com\ms\a\domain\model\userMicroserviceRole\UserMicroserviceRole.class
+br\com\ms\a\application\service\UserService.class
+br\com\ms\a\domain\model\enums\ErrorCodes.class
+br\com\ms\a\infra\FeignCliente\UserMicroserviceRoleFeign.class
+br\com\ms\a\application\service\MicroserviceService.class
+br\com\ms\a\infra\exceptions\ExceptionResponse.class
+br\com\ms\a\infra\exceptions\handler\RestExceptionHandler.class
+br\com\ms\a\apresentation\controller\UserController.class
+br\com\ms\a\domain\model\microsservice\MicroserviceResponse.class
+br\com\ms\a\domain\model\user\User.class
+br\com\ms\a\infra\constants\ErrorConstants.class
+br\com\ms\a\infra\exceptions\UserMicroserviceRoleNotFoundException.class
+br\com\ms\a\MsScholarAApplication.class
+br\com\ms\a\apresentation\controller\MicroserviceController.class
+br\com\ms\a\domain\model\user\UserResponse.class
+br\com\ms\a\domain\model\microsservice\Microservice.class
