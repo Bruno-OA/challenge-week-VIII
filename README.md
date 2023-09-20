@@ -265,27 +265,20 @@ stateDiagram
 <details> <summary> MicroserviceService Test</summary>
 <details> <summary> GetMicroserviceByIdAndUsersPermissions ( )</summary>
 
-1. Test Method Signature: The test method is defined as public void testGetMicroserviceByIdAndUsersPermissions().
-   It doesn’t take any parameters and doesn’t return anything.
-
+1. Test Method Signature: The test method is defined as public void estGetMicroserviceByIdAndUsersPermissions(). It doesn’t take any parameters and doesn’t return anything.
 2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L. Then, it creates a Microservice object named mockMicroservice with the name “Test Microservice”. Similarly, it creates a UserResponse object named mockUser with the name “Test User”. Finally, it creates a list of UserResponse objects named mockUsers and adds the mockUser object to it.
-
-3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior   of the _userMicroserviceRoleFeign object by specifying the expected return values for its methods using the when   method. Specifically, it expects the getMicroserviceByMicroserviceId method to return the mockMicroservice object   and the getUserByMicroserviceId method to return the mockUsers list.
-
+3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior of the _userMicroserviceRoleFeign object by specifying the expected return values for its methods using the when method. Specifically, it expects the getMicroserviceByMicroserviceId method to return the mockMicroservice object   and the getUserByMicroserviceId method to return the mockUsers list.
 4. Method Invocation: The test invokes the getMicroserviceByIdAndUsersPermissions method of the _microserviceService object with the microserviceId variable as an argument. It assigns the result to a variable named response.
-
-5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:   The id property of the response object is equal to the microserviceId. The name property of the response object is equal to the name of the mockMicroservice. The users property of the response object is equal to the mockUsers list.
+5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
+6. The id property of the response object is equal to the microserviceId. The name property of the response object is equal to the name of the mockMicroservice. The users property of the response object is equal to the mockUsers list.
 
 </details>
 
 <details> <summary> GetMicroserviceByIdAndUsersPermissionsException ( )</summary>
 
 1. Test Method Signature: The test method is defined as public void testGetMicroserviceByIdAndUsersPermissionsException(). It doesn’t take any parameters and doesn’t return anything.
-
 2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L.
-
 3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior   of the _userMicroserviceRoleFeign object by specifying that the getMicroserviceByMicroserviceId method should throw a RuntimeException when called with the microserviceId.
-
 4. Exception Assertion: The test uses the assertThrows method to assert that calling the getMicroserviceByIdAndUsersPermissions method with the microserviceId will throw a UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the expected exception when necessary. These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception when an error occurs.
 
 </details>
@@ -299,14 +292,10 @@ stateDiagram
 <details> <summary> findUserById ( ) </summary>
 
 1. Test Method Signature: The test method is defined as public void testFindUserById(). It doesn’t take any parameters and doesn’t return anything.
-
 2. Test Setup: The test sets up the necessary data and mocks for the test. It creates a UserMicroserviceRole object named userMicroserviceRole. It also creates a User object named user and sets its name to “Test User”. The userMicroserviceRole object is associated with the user object and has a role named “Test Role”.
-
 3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior of the _userMicroserviceRoleFeign object by specifying that the findById method should return the userMicroserviceRole object when called with the arguments 1L and 1L.
-
-5. Method Invocation: The test invokes the findUserById method of the _userService object with the arguments 1L and 1L. It assigns the result to a variable named userResponse.
-
-Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
+4. Method Invocation: The test invokes the findUserById method of the _userService object with the arguments 1L and 1L. It assigns the result to a variable named userResponse. 
+5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
 
 
 
@@ -315,14 +304,10 @@ Assertions: The test uses assertions to verify that the actual results match the
 <details> <summary> findUserByIdExcepetion ( ) </summary> 
 
 1. Test Method Signature: The test method is defined as public void testFindUserByIdException(). It doesn’t take any parameters and doesn’t return anything.
-
 2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L.
-
 3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior of the _userMicroserviceRoleFeign object by specifying that the findById method should throw a RuntimeException when called with the microserviceId.
-
 4. Exception Assertion: The test uses the assertThrows method to assert that calling the findUserById method with the microserviceId will throw a UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the expected exception when necessary.
-
-These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception when an error occurs.
+5. These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception when an error occurs.
 
 </details>
 
