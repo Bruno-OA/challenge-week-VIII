@@ -1,5 +1,8 @@
 package br.com.ms.d.infra.FeignClient;
 
+import br.com.ms.d.domain.model.microservice.Microservice;
+import br.com.ms.d.domain.model.user.UserResponse;
+import br.com.ms.d.domain.model.userMicroserviceRole.UserMicroserviceRole;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
