@@ -73,5 +73,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.INVALID_MICROSERVICE_NAME, ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
+    @ExceptionHandler(UserMicroserviceRoleNotFoundException.class)
+    public final ResponseEntity<Object> handleUserMicroserviceRoleNotFoundException(UserMicroserviceRoleNotFoundException ex) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.USER_MICROSERVICE_ROLE_NOT_FOUND, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
+    }
 
 }
