@@ -1,10 +1,10 @@
-package br.com.ms.scholard;
+package br.com.ms.d;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ScholarDApplicationTests {
+class MsScholarDApplicationTests {
 
 	@Test
 	void contextLoads() {
