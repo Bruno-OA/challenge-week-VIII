@@ -19,7 +19,7 @@ public class MicroserviceController {
     }
 
     @PostMapping("/microservices")
-    public ResponseEntity<MicroserviceDTO> createUser(@RequestBody MicroserviceDTO microserviceDTO)  {
+    public ResponseEntity<MicroserviceDTO> createMicroservice(@RequestBody MicroserviceDTO microserviceDTO)  {
         MicroserviceDTO microservice = _microserviceService.createMicroservice(microserviceDTO);
         return new ResponseEntity<>(microservice, HttpStatus.CREATED);
     }

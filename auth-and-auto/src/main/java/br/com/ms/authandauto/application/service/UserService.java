@@ -138,8 +138,8 @@ public class UserService implements IUserService {
         if (!alreadyHasMicroservice) {
             Role role = Role.USER;
             UserMicroserviceRoleDTO userMicroserviceRoleDTO = new UserMicroserviceRoleDTO();
-            userMicroserviceRoleDTO.setUser(user);
-            userMicroserviceRoleDTO.setMicroservice(microservice);
+            userMicroserviceRoleDTO.setUser(_modelMapper.map(user, UserDTO.class));
+            userMicroserviceRoleDTO.setMicroservice(_modelMapper.map(microservice, MicroserviceDTO.class));
             userMicroserviceRoleDTO.setRole(role);
             user.getUserMicroservices().add(_modelMapper.map(userMicroserviceRoleDTO, UserMicroserviceRole.class));
             _userRepository.save(user);

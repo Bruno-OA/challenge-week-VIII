@@ -7,14 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="d" />
+        <module name="a" />
         <module name="auth-and-auto" />
+        <module name="d" />
         <module name="scholar-d" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="a" options="-parameters" />
       <module name="auth-and-auto" options="-parameters" />
       <module name="d" options="-parameters" />
       <module name="scholar-d" options="-parameters" />
