@@ -1,0 +1,10 @@
+
+server:
+  port: 8082
+  servlet:
+    context-path: /ms-b
+spring:
+  application:
+    name: ms-scholar-b
+  main:
+    allow-bean-definition-overriding: true
