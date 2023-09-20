@@ -59,6 +59,7 @@ services:
     networks:
       challenge:
         ipv4_address: 172.23.0.5
+
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres'
       - 'SPRING_DATASOURCE_USERNAME=postgres'

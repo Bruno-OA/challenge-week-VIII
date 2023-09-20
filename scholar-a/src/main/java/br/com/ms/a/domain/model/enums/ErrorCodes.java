@@ -1,4 +1,4 @@
-package br.com.ms.authandauto.domain.enums;
+package br.com.ms.a.domain.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,14 +15,7 @@ public enum ErrorCodes {
     BAD_REQUEST("Bad Request"),
     MALFORMED_JSON("Malformed JSON"),
     RESOURCE_NOT_FOUND("Resource not found"),
-    DUPLICATED_EMAIL("Duplicated Email"),
-    INVALID_EMAIL("Invalid Email"),
-    MICROSERVICE_ALREADY_EXISTS_IN_USER("Microservice already exists in the user"),
-    MICROSERVICE_ALREADY_EXISTS("Microservice already exists"),
-    USER_MICROSERVICE_ROLE_NOT_FOUND("UserMicroserviceRole not found"),
-    INVALID_MICROSERVICE_NAME("Invalid microservice name");
-
-
+    USER_MICROSERVICE_ROLE_NOT_FOUND("UserMicroserviceRole not found");
     private final String message;
 
 }
