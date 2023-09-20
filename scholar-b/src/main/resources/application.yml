@@ -1,10 +1,10 @@
 server:
-  port: 8084
+  port: 8082
   servlet:
-    context-path: /ms-d
+    context-path: /ms-b
 spring:
   application:
-    name: ms-scholar-d
+    name: ms-scholar-b
   main:
     allow-bean-definition-overriding: true
   profiles:
