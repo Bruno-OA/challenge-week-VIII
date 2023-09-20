@@ -64,6 +64,26 @@ Each individual microservice must comunicate with the main microservice
 6.**Postman** or **Swagger** collection
 7.Usage of at least one OneToMany, OneToOne or ManyToMany relation
 
+## Project Structure
+
+### Apresentation
+- **Controller**: API controllers, responsible for receiving requests and sending responses.
+
+### Application
+- **DTOs**: Data Transfer Objects used to pass data between layers.
+- **Interfaces**: Contracts for the services.
+- **Services**: Contains high-level business logic and calls repository methods.
+
+### Domain
+- **Entities/Model**: Domain entities.
+- **Interfaces**: Contracts for the Repositories.
+- **Enums**: Enumerations used in entities and/or business rules.
+
+### Infra
+- **Config**: Project dependency configuration.
+- **Constants**
+- **Exceptions**: Exception configuration and its handler.
+
 ## Central microservice
 
 The Central Microservice is designed to simulate the authentication and authorization of a user within a microservice. It consists of three controllers: `MicroserviceController`, `UserController`, and `UserMicroserviceRoleController`. Each controller has its own endpoints.
