@@ -1,0 +1,599 @@
+{
+	"info": {
+		"_postman_id": "946e1cc7-8a8e-45f5-bfb7-1babdba0ea15",
+		"name": "Challenger II",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26227668"
+	},
+	"item": [
+		{
+			"name": "ms-auth-and-auto",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/users/{id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"users",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUsersAndPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"name\",\r\n    \"email\": \"email\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bindUserToMicroservice",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"emailUser\": \"email\",\r\n    \"nameMicroservice\": \"Microservice A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/users/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"users",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateUserRoleInMicroservice",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/users/{userId}/microservice/{microserviceId}/update-role?newRole=USER",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"users",
+										"{userId}",
+										"microservice",
+										"{microserviceId}",
+										"update-role"
+									],
+									"query": [
+										{
+											"key": "newRole",
+											"value": "USER"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "createMicroservice",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Microservice A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/microservices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"microservices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/microservices/{id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"microservices",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "userMicroserviceRole-controller",
+					"item": [
+						{
+							"name": "getUserMicroserviceRole",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/user/{id-user}/microservice/{id-microservice}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"userMicroserviceRole",
+										"user",
+										"{id-user}",
+										"microservice",
+										"{id-microservice}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getMicroserviceByMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"userMicroserviceRole",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUsersByMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId}/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ms-auth-and-auto",
+										"api",
+										"userMicroserviceRole",
+										"{microserviceId}",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-scholar-a",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findUserByIdAndMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "getMicroserviceByIdAndUsersPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ms-a/api/scholar/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-scholar-b",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findUserByIdAndMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "getMicroserviceByIdAndUsersPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/ms-a/api/scholar/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-scholar-c",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findUserByIdAndMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "getMicroserviceByIdAndUsersPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8083/ms-a/api/scholar/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8083",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-scholar-d",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findUserByIdAndMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "getMicroserviceByIdAndUsersPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8084/ms-a/api/scholar/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ms-scholar-e",
+			"item": [
+				{
+					"name": "user-controller",
+					"item": [
+						{
+							"name": "findUserByIdAndMicroserviceId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/ms-a/api/scholar/{userId}/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"{userId}",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "microservice-controller",
+					"item": [
+						{
+							"name": "getMicroserviceByIdAndUsersPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/ms-a/api/scholar/microservice/{microserviceId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"ms-a",
+										"api",
+										"scholar",
+										"microservice",
+										"{microserviceId}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
