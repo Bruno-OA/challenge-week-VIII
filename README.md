@@ -2,17 +2,18 @@
 
 > Use this table of contents to jump to the section you want
 
-| Content                                      | Link                    | Difficulty |
-|:---------------------------------------------|:------------------------|:----------:|
-| About the challenge                          | [Go](<insert the link>) |     -      |
-| What the demands are                         | [Go](<insert the link>) |     -      |
-| Project Structure                            | [Go](<insert the link>) |     -      |
-| Central microservice                         | [Go](<insert the link>) |    high    |
-| Individuals microservice                     | [Go](<insert the link>) |    high    |
-| Usage of dockerfiles and docker-compose.yaml | [Go](<insert the link>) |   medium   |
-| Unit tests                                   | [Go](<insert the link>) |    high    |
-| Usage of OpenFeign                           | [Go](<insert the link>) |   medium   |
-| Postman collection                           | [Go](<insert the link>) |    low     |
+| Content                                      | Link                                                                                                       | Difficulty |
+|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
+| About the challenge                          | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#about-the-challenge)                         |     -      |
+| Timeline                                     | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#timeline)                                    |     -      |
+| What the demands are                         | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#what-the-demands-are)                        |     -      |
+| Project Structure                            | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#project-structure>)                          |   medium   |
+| Central microservice                         | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#central-microservice)                        |    high    |
+| Individuals microservice                     | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#individuals-microservice)                    |    high    |
+| Usage of dockerfiles and docker-compose.yaml | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#usage-of-dockerfiles-and-docker-composeyaml) |   medium   |
+| Unit tests                                   | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#unit-tests)                                  |    high    |
+| Usage of OpenFeign                           | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#usage-of-openfeign)                          |   medium   |
+| Postman collection                           | [Go](https://github.com/Bruno-OA/challenge-week-VIII/tree/dev#postman-collection)                          |    low     |
 
 ## About the challenge
 
@@ -21,6 +22,39 @@ Each individual microservice must comunicate with the main microservice
 
 ---
 
+## Timeline
+
+````mermaid
+gantt
+    title Project Progress
+    dateFormat YYYY-MM-DD
+    section  Structure
+         desenvolvimento          : 2023-09-11, 3d
+        
+    section Central Ms
+    desenvolvimento  :2023-09-11, 7d
+        
+    section Individuals Ms
+    desenvolvimento          : 2023-09-16, 3d
+        
+    section Docker
+    desenvolvimento : 2023-09-12, 8d
+        
+    section Unit Tests
+    desenvolvimento    : 2023-09-18, 1d
+    
+    section OpenFeign
+    desenvolvimento  :2023-09-16, 2d
+    
+    section Postman
+    desenvolvimento  :2023-09-19, 1d
+    
+
+````
+
+---
+
+
 ## What the demands are
 
 ---
@@ -28,12 +62,12 @@ Each individual microservice must comunicate with the main microservice
 > 1. The requirements for the project are listed on this section, just follow along.
 > 2. Microservice specific requirements will be listed on their own sections
 
-1.Usage of two fixed branches: main and dev
+1. Usage of two fixed branches: main and dev
 
 - `Main` branch will be used for the latest complete project version
 - `Dev` branch will be used to assemble every feature developed before merging to main branch
 
-2.Branches' **name pattern**: `[microservice-name]/feature-[feature-name]`
+2. Branches' **name pattern**: `[microservice-name]/feature-[feature-name]`
 
 ```mermaid
   gitGraph LR:
@@ -54,19 +88,19 @@ Each individual microservice must comunicate with the main microservice
 
 ```
 
-3.**Semantic commits** messages implementation, example below:
+3. **Semantic commits** messages implementation, example below:
 
 ```git
  git commit -m "docs: updated README.md with new table of contents"
 ```
 
-4.**README** as documentation
+4. **README** as documentation
 
-5.Usage of Docker with **docker-compose.yaml**
+5. Usage of Docker with **docker-compose.yaml**
 
-6.**Postman** or **Swagger** collection
+6. **Postman** or **Swagger** collection
 
-7.Usage of at least one OneToMany, OneToOne or ManyToMany relation
+7. Usage of at least one OneToMany, OneToOne or ManyToMany relation
 
 ---
 
@@ -152,6 +186,7 @@ The `UserMicroserviceRoleController` has three endpoints:
 ### docker-compose.yml
 > This file sets how each container should act while running with docker
 > While in development, we decided to use a specific designed by user netowrk to manage communication between the containers, setting fixed IPs to each microservice
+ 
 
 ### Containers
 #### Individual Microservice container
@@ -221,7 +256,85 @@ stateDiagram
 
 ## Unit tests
 
-1. First test
+<details> <summary> MicroserviceService Test</summary>
+<details> <summary> GetMicroserviceByIdAndUsersPermissions ( )</summary>
+
+1. Test Method Signature: The test method is defined as public void testGetMicroserviceByIdAndUsersPermissions().
+   It doesn’t take any parameters and doesn’t return anything.
+   2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the
+      value 1L. Then, it creates a Microservice object named mockMicroservice with the name “Test Microservice”. Similarly,
+      it creates a UserResponse object named mockUser with the name “Test User”. Finally, it creates a list of UserResponse
+      objects named mockUsers and adds the mockUser object to it.
+   3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior
+      of the _userMicroserviceRoleFeign object by specifying the expected return values for its methods using the when
+      method. Specifically, it expects the getMicroserviceByMicroserviceId method to return the mockMicroservice object
+      and the getUserByMicroserviceId method to return the mockUsers list.
+   4. Method Invocation: The test invokes the getMicroserviceByIdAndUsersPermissions method of the
+      _microserviceService object with the microserviceId variable as an argument. It assigns the result to a variable named
+      response.
+   5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
+      The id property of the response object is equal to the microserviceId.
+      The name property of the response object is equal to the name of the mockMicroservice.
+      The users property of the response object is equal to the mockUsers list.
+
+</details>
+
+<details> <summary> GetMicroserviceByIdAndUsersPermissionsException ( )</summary>
+
+1. Test Method Signature: The test method is defined as public void
+   testGetMicroserviceByIdAndUsersPermissionsException(). It doesn’t take any parameters and doesn’t return anything.
+   2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the
+      value 1L.
+   3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior
+      of the _userMicroserviceRoleFeign object by specifying that the getMicroserviceByMicroserviceId method should
+      throw a RuntimeException when called with the microserviceId.
+   4. Exception Assertion: The test uses the assertThrows method to assert that calling the
+      getMicroserviceByIdAndUsersPermissions method with the microserviceId will throw a
+      UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the
+      expected exception when necessary.
+      These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception
+      when an error occurs.
+
+</details>
+
+
+</details> 
+
+<details> <summary> UserServiceTest</summary>
+
+
+<details> <summary> findUserById ( ) </summary>
+
+1. Test Method Signature: The test method is defined as public void testFindUserById(). It doesn’t take any parameters and doesn’t return anything.
+
+2. Test Setup: The test sets up the necessary data and mocks for the test. It creates a UserMicroserviceRole object named userMicroserviceRole. It also creates a User object named user and sets its name to “Test User”. The userMicroserviceRole object is associated with the user object and has a role named “Test Role”.
+
+3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior of the _userMicroserviceRoleFeign object by specifying that the findById method should return the userMicroserviceRole object when called with the arguments 1L and 1L.
+
+5. Method Invocation: The test invokes the findUserById method of the _userService object with the arguments 1L and 1L. It assigns the result to a variable named userResponse.
+
+Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
+
+
+
+</details>
+
+<details> <summary> findUserByIdExcepetion ( ) </summary> 
+
+1. Test Method Signature: The test method is defined as public void testFindUserByIdException(). It doesn’t take any parameters and doesn’t return anything.
+
+2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L.
+
+3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior of the _userMicroserviceRoleFeign object by specifying that the findById method should throw a RuntimeException when called with the microserviceId.
+
+4. Exception Assertion: The test uses the assertThrows method to assert that calling the findUserById method with the microserviceId will throw a UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the expected exception when necessary.
+
+These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception when an error occurs.
+
+</details>
+
+</details>
+
 
 ---
 
@@ -264,46 +377,51 @@ stateDiagram
 ---
 
 ## Postman collection
-You can download the Postman Collection as a .json file [here](<link>)
+You can see the Postman Collection as a .json file [here](https://github.com/Bruno-OA/challenge-week-VIII/blob/dev/Challenger%20II.postman_collection.json)
+> Use the links below to get to the URLs
 
 | Central Microservice            | Name                            | Http method | Link                                                                                                                | Body / Query                                                         | 
 |---------------------------------|---------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| user-controller                 | findById                        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/users/{id})                                                         |                                                                      |
-| user-controller                 | getUsersAndPermissions          | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/users)                                                              |                                                                      | 
+| user-controller                 | findById                        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/users/{id})                                                         | -                                                                    |
+| user-controller                 | getUsersAndPermissions          | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/users)                                                              | -                                                                    | 
 | user-controller                 | createUser                      | POST        | [Go](http://localhost:8080/ms-auth-and-auto/api/users)                                                              | { "name": "name", "email": "email", "password": "password" }         |
 | user-controller                 | bindUserToMicroservice          | PUT         | [Go](http://localhost:8080/ms-auth-and-auto/api/users/{userId}/microservice/{microserviceId})                       | { "emailUser": "emailUser", "nameMicroservice": "nameMicroservice" } |
 | user-controller                 | updateUserRoleInMicroservice    | PUT         | [Go](http://localhost:8080/ms-auth-and-auto/api/users/{userId}/microservice/{microserviceId}/update-role)           | { "key": "newRole", "value": "USER"}                                 |
 | microservice-controller         | createMicroservice              | POST        | [Go](http://localhost:8080/ms-auth-and-auto/api/microservices)                                                      | { "name": "nameMicroservice"}                                        |
-| microservice-controller         | findById                        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/microservices/{id})                                                 |                                                                      |
-| userMicroserviceRole-controller | getUserMicroserviceRole         | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/user/{id-user}/microservice/{id-microservice}) |                                                                      |
-| userMicroserviceRole-controller | getMicroserviceByMicroserviceId | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId})                              |                                                                      |
-| userMicroserviceRole-controller | getUsersByMicroserviceId        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId}/users)                        |                                                                      |
-> For each individual microservice, we recommend changing some values as:
-> - Individual microservice A
->   - Port: 8081
->   - Context path: /ms-a
-> - Individual microservice B
->   - Port: 8082
->   - Context path: /ms-b
-> - Individual microservice C
->   - Port: 8083
->   - Context path: /ms-c
-> - Individual microservice D
->   - Port: 8084
->   - Context path: /ms-d
-> - Individual microservice E
->   - Port: 8085
->   - Context path: /ms-e
+| microservice-controller         | findById                        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/microservices/{id})                                                 | -                                                                    |
+| userMicroserviceRole-controller | getUserMicroserviceRole         | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/user/{id-user}/microservice/{id-microservice}) | -                                                                    |
+| userMicroserviceRole-controller | getMicroserviceByMicroserviceId | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId})                              | -                                                                    |
+| userMicroserviceRole-controller | getUsersByMicroserviceId        | GET         | [Go](http://localhost:8080/ms-auth-and-auto/api/userMicroserviceRole/{microserviceId}/users)                        | -                                                                    |
 
+> Microservice A
+>
 | Related Controller      | Name                                   | Http method | Link                                                                                |
 |-------------------------|----------------------------------------|-------------|-------------------------------------------------------------------------------------|
 | user-controller         | findUserByIdAndMicroserviceId          | GET         | [Go](http://localhost:8081/ms-a/api/scholar/{userId}/microservice/{microserviceId}) |
 | microservice-controller | getMicroserviceByIdAndUsersPermissions | GET         | [Go](http://localhost:8081/ms-a/api/scholar/microservice/{microserviceId})          |
-
-
-
-
-
-
+> Microservice B
+>
+| Related Controller      | Name                                   | Http method | Link                                                                                |
+|-------------------------|----------------------------------------|-------------|-------------------------------------------------------------------------------------|
+| user-controller         | findUserByIdAndMicroserviceId          | GET         | [Go](http://localhost:8082/ms-b/api/scholar/{userId}/microservice/{microserviceId}) |
+| microservice-controller | getMicroserviceByIdAndUsersPermissions | GET         | [Go](http://localhost:8082/ms-b/api/scholar/microservice/{microserviceId})          |
+> Microservice C
+>
+| Related Controller      | Name                                   | Http method | Link                                                                                |
+|-------------------------|----------------------------------------|-------------|-------------------------------------------------------------------------------------|
+| user-controller         | findUserByIdAndMicroserviceId          | GET         | [Go](http://localhost:8083/ms-c/api/scholar/{userId}/microservice/{microserviceId}) |
+| microservice-controller | getMicroserviceByIdAndUsersPermissions | GET         | [Go](http://localhost:8083/ms-c/api/scholar/microservice/{microserviceId})          |
+> Microservice D
+>
+| Related Controller      | Name                                   | Http method | Link                                                                                |
+|-------------------------|----------------------------------------|-------------|-------------------------------------------------------------------------------------|
+| user-controller         | findUserByIdAndMicroserviceId          | GET         | [Go](http://localhost:8084/ms-d/api/scholar/{userId}/microservice/{microserviceId}) |
+| microservice-controller | getMicroserviceByIdAndUsersPermissions | GET         | [Go](http://localhost:8084/ms-d/api/scholar/microservice/{microserviceId})          |
+> Microservice E
+>
+| Related Controller      | Name                                   | Http method | Link                                                                                |
+|-------------------------|----------------------------------------|-------------|-------------------------------------------------------------------------------------|
+| user-controller         | findUserByIdAndMicroserviceId          | GET         | [Go](http://localhost:8085/ms-e/api/scholar/{userId}/microservice/{microserviceId}) |
+| microservice-controller | getMicroserviceByIdAndUsersPermissions | GET         | [Go](http://localhost:8085/ms-e/api/scholar/microservice/{microserviceId})          |
 
 ---
