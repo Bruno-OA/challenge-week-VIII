@@ -1,3 +1,0 @@
-client:
-  post:
-    baseUrl: http://172.23.0.3:8080/ms-auth-and-auto
