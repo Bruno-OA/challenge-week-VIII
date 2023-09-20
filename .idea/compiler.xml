@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="a" />
         <module name="auth-and-auto" />
+        <module name="c" />
         <module name="d" />
         <module name="scholar-d" />
       </profile>
@@ -18,6 +19,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="a" options="-parameters" />
       <module name="auth-and-auto" options="-parameters" />
+      <module name="c" options="-parameters" />
       <module name="d" options="-parameters" />
       <module name="scholar-d" options="-parameters" />
     </option>
