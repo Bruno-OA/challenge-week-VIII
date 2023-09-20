@@ -1,0 +1,11 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /ms-c
+spring:
+  application:
+    name: ms-scholar-c
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+     active: LOCAL
