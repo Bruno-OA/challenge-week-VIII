@@ -23,7 +23,7 @@ public class UserMicroserviceRoleController {
         _userMicroserviceRoleService = userMicroserviceRoleService;
     }
     @GetMapping("/userMicroserviceRole/user/{id-user}/microservice/{id-microservice}")
-    public ResponseEntity<UserMicroserviceRoleDTO> getUserMicroserviceRole(
+    public ResponseEntity<UserMicroserviceRoleDTO> getUserByUserIdAndMicroserviceId(
             @PathVariable("id-user") Long userId,
             @PathVariable("id-microservice") Long microserviceId) {
         UserMicroserviceRoleDTO userMicroserviceRole = _userMicroserviceRoleService
