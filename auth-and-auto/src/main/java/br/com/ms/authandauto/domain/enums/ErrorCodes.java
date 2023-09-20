@@ -19,6 +19,7 @@ public enum ErrorCodes {
     INVALID_EMAIL("Invalid Email"),
     MICROSERVICE_ALREADY_EXISTS_IN_USER("Microservice already exists in the user"),
     MICROSERVICE_ALREADY_EXISTS("Microservice already exists"),
+    USER_MICROSERVICE_ROLE_NOT_FOUND("UserMicroserviceRole not found"),
     INVALID_MICROSERVICE_NAME("Invalid microservice name");
 
 
