@@ -142,9 +142,13 @@ The `MicroserviceController` has two endpoints:
 The `UserController` has five endpoints:
 
 1. `createUser`: This endpoint is responsible for creating a new user in the database.
+
 2. `findById`: This endpoint is responsible for fetching a user by their ID from the database.
+
 3. `bindUserToMicroserviceId`: This endpoint links a user to a microservice. The required parameters are `userId`, `microserviceId`, and `UserMicroserviceRequest` (a class that contains `emailUser` and `nameMicroservice`).
+
 4. `getUsersAndPermissions`: This endpoint returns a list of users along with their linked microservices and permissions within those microservices.
+
 5. `updateUserRoleInMicroservice`: This endpoint updates the user's role within the microservice. By default, when the user is linked to the microservice, their role is set as USER. With this endpoint, it's possible to change the user's role to ADMIN or from ADMIN to USER by passing the parameters: `userId`, `microserviceId`, and `newRole`.
 
 ### UserMicroserviceRoleController
@@ -152,7 +156,9 @@ The `UserController` has five endpoints:
 The `UserMicroserviceRoleController` has three endpoints:
 
 1. `getUsersByUserIdAndMicroserviceId`: This endpoint is responsible for searching for the relationship between the user and microservice and returns the user and the user's role within that microservice, passing as parameters: userId and microserviceId.
+
 2. `getMicroserviceByMicroserviceId`: This endpoint validates if there is a microservice within UserMicroserviceRole, where the relationship between user and microservice is located. If the microservice exists within this relationship, the endpoint will return the microservice passed by parameter: microserviceId.
+
 3. `getUsersByMicroserviceId`: This endpoint returns a list of users and their role linked to the microservice, parameter: microserviceId.
 
 ---
@@ -261,39 +267,26 @@ stateDiagram
 
 1. Test Method Signature: The test method is defined as public void testGetMicroserviceByIdAndUsersPermissions().
    It doesn’t take any parameters and doesn’t return anything.
-   2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the
-      value 1L. Then, it creates a Microservice object named mockMicroservice with the name “Test Microservice”. Similarly,
-      it creates a UserResponse object named mockUser with the name “Test User”. Finally, it creates a list of UserResponse
-      objects named mockUsers and adds the mockUser object to it.
-   3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior
-      of the _userMicroserviceRoleFeign object by specifying the expected return values for its methods using the when
-      method. Specifically, it expects the getMicroserviceByMicroserviceId method to return the mockMicroservice object
-      and the getUserByMicroserviceId method to return the mockUsers list.
-   4. Method Invocation: The test invokes the getMicroserviceByIdAndUsersPermissions method of the
-      _microserviceService object with the microserviceId variable as an argument. It assigns the result to a variable named
-      response.
-   5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:
-      The id property of the response object is equal to the microserviceId.
-      The name property of the response object is equal to the name of the mockMicroservice.
-      The users property of the response object is equal to the mockUsers list.
+
+2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L. Then, it creates a Microservice object named mockMicroservice with the name “Test Microservice”. Similarly, it creates a UserResponse object named mockUser with the name “Test User”. Finally, it creates a list of UserResponse objects named mockUsers and adds the mockUser object to it.
+
+3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior   of the _userMicroserviceRoleFeign object by specifying the expected return values for its methods using the when   method. Specifically, it expects the getMicroserviceByMicroserviceId method to return the mockMicroservice object   and the getUserByMicroserviceId method to return the mockUsers list.
+
+4. Method Invocation: The test invokes the getMicroserviceByIdAndUsersPermissions method of the _microserviceService object with the microserviceId variable as an argument. It assigns the result to a variable named response.
+
+5. Assertions: The test uses assertions to verify that the actual results match the expected results. It checks that:   The id property of the response object is equal to the microserviceId. The name property of the response object is equal to the name of the mockMicroservice. The users property of the response object is equal to the mockUsers list.
 
 </details>
 
 <details> <summary> GetMicroserviceByIdAndUsersPermissionsException ( )</summary>
 
-1. Test Method Signature: The test method is defined as public void
-   testGetMicroserviceByIdAndUsersPermissionsException(). It doesn’t take any parameters and doesn’t return anything.
-   2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the
-      value 1L.
-   3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior
-      of the _userMicroserviceRoleFeign object by specifying that the getMicroserviceByMicroserviceId method should
-      throw a RuntimeException when called with the microserviceId.
-   4. Exception Assertion: The test uses the assertThrows method to assert that calling the
-      getMicroserviceByIdAndUsersPermissions method with the microserviceId will throw a
-      UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the
-      expected exception when necessary.
-      These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception
-      when an error occurs.
+1. Test Method Signature: The test method is defined as public void testGetMicroserviceByIdAndUsersPermissionsException(). It doesn’t take any parameters and doesn’t return anything.
+
+2. Test Setup: The test sets up the necessary data and mocks for the test. It initializes a microserviceId variable with the value 1L.
+
+3. Mocking: The test uses the Mockito framework to mock the behavior of external dependencies. It mocks the behavior   of the _userMicroserviceRoleFeign object by specifying that the getMicroserviceByMicroserviceId method should throw a RuntimeException when called with the microserviceId.
+
+4. Exception Assertion: The test uses the assertThrows method to assert that calling the getMicroserviceByIdAndUsersPermissions method with the microserviceId will throw a UserMicroserviceRoleNotFoundException. This ensures that the method correctly handles exceptions and throws the expected exception when necessary. These assertions help verify that the method under test handles exceptions appropriately and throws the expected exception when an error occurs.
 
 </details>
 
