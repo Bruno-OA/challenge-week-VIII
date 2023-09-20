@@ -3,5 +3,5 @@ WORKDIR /app
 COPY .mvn/ ./mvn
 COPY mvnw pom.xml ./
 COPY src ./src
-COPY ./target/scholar-d-0.0.1-SNAPSHOT.jar scholar-d-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","scholar-d-0.0.1-SNAPSHOT.jar"]
+COPY ./target/b-0.0.1-SNAPSHOT.jar b-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","b-0.0.1-SNAPSHOT.jar"]
